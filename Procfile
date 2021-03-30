@@ -1,0 +1,1 @@
+web: gunicorn AllWorkork.wsgi
