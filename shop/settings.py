@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6787t1dvamnt2',
+        'USER': 'kqjtmardrzffmr',
+        'PASSWORD': '8efb6a29c31f82bf6e1e073fb5eed9a1ee74bbc272b8a8fea07ec8ab5f63b2f9',
+        'HOST': 'ec2-52-50-171-4.eu-west-1.compute.amazonaws.com',
+        'PORT': 5432
     }
 }
 
