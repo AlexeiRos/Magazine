@@ -32,4 +32,10 @@ class SmartphoneSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class TabletSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tablet
+        fields = '__all__'
+
+
 

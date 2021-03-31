@@ -43,6 +43,18 @@ PRODUCT_SPEC = {
         'Максимальный объем SD карты': 'sd_volume_max',
         'Камера (МП)': 'main_cam_mp',
         'Фронтальная камера (МП)': 'frontal_cam_mp'
+    },
+    'tablet': {
+        'Операционная система': 'operating_system',
+        'Диагональ': 'diagonal',
+        'Тип дисплея': 'display_type',
+        'Разрешение экрана': 'resolution',
+        'Модель процессора': 'processor_type',
+        'Количество ядер процессора': 'number_of_processor_cores',
+        'Оперативная память': 'ram',
+        'Объем встроенной памяти': 'built_in_memory',
+        'Аккумулятор ': 'battery',
+        'Время работы аккумулятора': 'time_without_charge'
     }
 }
 

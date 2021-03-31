@@ -46,14 +46,15 @@ class CategoryManager(models.Manager):
 
     CATEGORY_NAME_COUNT_NAME = {
         'Ноутбуки': 'notebook__count',
-        'Смартфоны': 'smartphone__count'
+        'Смартфоны': 'smartphone__count',
+        'Планшеты': 'tablet__count'
     }
 
     def get_queryset(self):
         return super().get_queryset()
 
     def get_categories_for_left_sidebar(self):
-        models = get_models_for_count('notebook', 'smartphone')
+        models = get_models_for_count('notebook', 'smartphone', 'tablet')
         qs = list(self.get_queryset().annotate(*models))
         data = [
             dict(name=c.name, url=c.get_absolute_url(), count=getattr(c, self.CATEGORY_NAME_COUNT_NAME[c.name]))
@@ -123,6 +124,26 @@ class Smartphone(Product):
     )
     main_cam_mp = models.CharField(max_length=255, verbose_name='Главная камера')
     frontal_cam_mp = models.CharField(max_length=255, verbose_name='Фронтальная камера')
+
+    def __str__(self):
+        return "{} : {}".format(self.category.name, self.title)
+
+    def get_absolute_url(self):
+        return get_product_url(self, 'product_detail')
+
+
+class Tablet(Product):
+
+    operating_system = models.CharField(max_length=255, verbose_name='Операционная система')
+    diagonal = models.CharField(max_length=255, verbose_name='Диагональ')
+    display_type = models.CharField(max_length=255, verbose_name='Тип дисплея')
+    resolution = models.CharField(max_length=255, verbose_name='Разрешение экрана')
+    processor_type = models.CharField(max_length=255, verbose_name='Модель процессора')
+    number_of_processor_cores = models.CharField(max_length=255, verbose_name='Количество ядер процессора')
+    ram = models.CharField(max_length=255, verbose_name='Оперативная память')
+    built_in_memory = models.CharField(max_length=255, verbose_name='Объем встроенной памяти')
+    battery = models.CharField(max_length=255, verbose_name='Аккумулятор')
+    time_without_charge = models.CharField(max_length=255, verbose_name='Время работы аккумулятора')
 
     def __str__(self):
         return "{} : {}".format(self.category.name, self.title)
