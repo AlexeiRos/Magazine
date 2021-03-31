@@ -127,7 +127,7 @@ class CheckoutView(CartMixin, View):
 
     def get(self, request, *args, **kwargs):
         categories = Category.objects.get_categories_for_left_sidebar()
-        form = OrderForm(request.POST or True)
+        form = OrderForm(request.POST or None)
         context = {
             'cart': self.cart,
             'categories': categories,
@@ -140,7 +140,7 @@ class MakeOrderView(CartMixin, View):
 
     @transaction.atomic
     def post(self, request, *args, **kwargs):
-        form = OrderForm(request.POST or True)
+        form = OrderForm(request.POST or None)
         customer = Customer.objects.get(user=request.user)
         if form.is_valid():
             new_order = form.save(commit=False)

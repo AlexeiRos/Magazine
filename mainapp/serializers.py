@@ -17,7 +17,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = '__all__'
+        fields = ("id", "user", "first_name", "last_name", "phone", "email")
 
 
 class NotebookSerializer(serializers.ModelSerializer):
@@ -30,3 +30,6 @@ class SmartphoneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Smartphone
         fields = '__all__'
+
+
+
