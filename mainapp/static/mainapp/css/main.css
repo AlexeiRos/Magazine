@@ -1,5 +1,6 @@
 body{
     background: rgba(0, 0, 0, 0.15);
+    height: 100vh;
 }
 
 @media screen and (max-width: 992px) {
@@ -7,3 +8,6 @@ body{
           overflow: auto;
         }
     }
+.container {
+    height: 100%;
+}
