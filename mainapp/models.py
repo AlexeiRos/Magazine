@@ -201,6 +201,7 @@ class Order(models.Model):
     phone = models.CharField(max_length=20, verbose_name='Телефон')
     cart = models.ForeignKey(Cart, verbose_name='Корзина', on_delete=models.CASCADE, null=True, blank=True)
     address = models.CharField(max_length=1024, verbose_name='Адрес', null=True, blank=True)
+    for_anonymous_user = models.BooleanField(default=False)
     status = models.CharField(
         max_length=100,
         verbose_name='Статус заказ',
