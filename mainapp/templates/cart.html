@@ -13,7 +13,8 @@
     {% endfor %}
 {% endif %}
 {% if cart.products.count %}
-<table class="table">
+<div class="w-100 overflow-auto">
+  <table class="table">
   <thead>
     <tr>
       <th scope="col">Наименование</th>
@@ -53,5 +54,6 @@
         </tr>
   </tbody>
 </table>
+</div>
 {% endif %}
 {% endblock content %}

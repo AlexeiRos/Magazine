@@ -20,6 +20,11 @@
     body {
       padding-top: 56px;
     }
+    @media screen and (max-width: 992px) {
+        .overflow-auto {
+          overflow: auto;
+        }
+    }
 </style>
 <body>
 
@@ -43,9 +48,9 @@
   <!-- Page Content -->
   <div class="container">
 
-    <div class="row">
+    <div class="row mx-0 mx-lg-n3">
 
-      <div class="col-lg-3 mt-5">
+      <div class="col-lg-3 col-12 mt-5">
         <div class="list-group">
           {% for category in categories %}
           <a href="{{ category.url }}" class="list-group-item">{{ category.name }} ({{ category.count }})</a>
@@ -55,7 +60,7 @@
       </div>
       <!-- /.col-lg-3 -->
 
-      <div class="col-lg-9">
+      <div class="col-lg-9 col-12">
         {% block content %}
         {% if messages %}
             {% for message in messages %}
@@ -88,7 +93,7 @@
 
         <div class="row">
           {% for product in products %}
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 col-12 mb-4">
             <div class="card h-100">
               <a href="{{ product.get_absolute_url }}"><img class="card-img-top" src="{{ product.image.url }}" alt=""></a>
               <div class="card-body">
