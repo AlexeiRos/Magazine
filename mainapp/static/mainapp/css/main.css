@@ -1,13 +1,22 @@
 body{
     background: rgba(0, 0, 0, 0.15);
-    height: 100vh;
+    margin-bottom: 60px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
         .overflow-auto {
           overflow: auto;
         }
     }
-.container {
-    height: 100%;
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+footer{
+    background-color: #f0f0f0;
+    color: #000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
