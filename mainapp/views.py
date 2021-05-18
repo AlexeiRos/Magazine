@@ -183,7 +183,7 @@ class LoginView(CartMixin, View):
             if user:
                 login(request, user)
                 return HttpResponseRedirect('/')
-        context = {'form': form}
+        context = {'form': form, 'cart': self.cart}
         return render(request, 'login.html', context)
 
 
@@ -192,7 +192,7 @@ class RegistrationView(CartMixin, View):
     def get(self, request, *args, **kwargs):
         form = RegistrationForm(request.POST or None)
         categories = Category.objects.all()
-        context = {'form': form, 'categories': categories}
+        context = {'form': form, 'categories': categories, 'cart': self.cart}
         return render(request, 'registration.html', context)
 
     def post(self, request, *args, **kwargs):
@@ -214,5 +214,5 @@ class RegistrationView(CartMixin, View):
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
             login(request, user)
             return HttpResponseRedirect('/')
-        context = {'form': form}
+        context = {'form': form, 'cart': self.cart}
         return render(request, 'registration.html', context)
